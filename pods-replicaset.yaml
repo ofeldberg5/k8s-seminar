@@ -21,7 +21,7 @@ spec:
         volumeMounts:
         - mountPath: /tmp/data
           name: myvol
-      volumes:
-      - name: myvol
-        hostPath:
-          path: /data
+  volumes:
+  - name: myvol
+    hostPath:
+      path: /data

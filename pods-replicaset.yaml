@@ -25,3 +25,4 @@ spec:
       - name: myvol
         hostPath:
           path: /data
+          type: DirectoryOrCreate

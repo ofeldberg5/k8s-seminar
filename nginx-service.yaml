@@ -23,6 +23,7 @@ apiVersion: v1
 metadata:
   name: myservice
 spec:
+  type: LoadBalancer
   selector:
     app: MyApp
   ports:
@@ -30,4 +31,3 @@ spec:
     protocol: TCP
     port: 80
     targetPort: 8080
-  type: LoadBalancer

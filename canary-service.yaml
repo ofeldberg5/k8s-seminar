@@ -1,0 +1,53 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bear-dep
+spec:
+  selector:
+    matchLabels:
+      app: myanimal
+  replicas: 1 
+  template: 
+    metadata:
+      labels:
+        app: myanimal
+    spec:
+      containers:
+      - name: mybear
+        image: supergiantkir/animals:bear
+        ports:
+        - containerPort: 80
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: moose-dep
+spec:
+  selector:
+    matchLabels:
+      app: myanimal
+  replicas: 2 
+  template: 
+    metadata:
+      labels:
+        app: myanimal
+    spec:
+      containers:
+      - name: mymoose
+        image: supergiantkir/animals:moose
+        ports:
+        - containerPort: 80
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: animal-service-2
+spec:
+  type: LoadBalancer
+  selector:
+    app: myanimal
+  ports:
+  - name: http
+    protocol: TCP
+    port: 80
+    targetPort: 80

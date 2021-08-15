@@ -16,7 +16,7 @@ spec:
       - name: mybear
         image: supergiantkir/animals:bear
         ports:
-        - containerPort: 8080
+        - containerPort: 80
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -36,7 +36,7 @@ spec:
       - name: mymoose
         image: supergiantkir/animals:moose
         ports:
-        - containerPort: 8080
+        - containerPort: 80
 ---
 kind: Service
 apiVersion: v1
@@ -50,4 +50,4 @@ spec:
   - name: http
     protocol: TCP
     port: 80
-    targetPort: 8080
+    targetPort: 80
